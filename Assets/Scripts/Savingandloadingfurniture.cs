@@ -6,20 +6,20 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class Savingandloadingfurniture 
 {
-    public static void SaveFurnitrue(Statystykimebla statystykimebla)
+    public static void SaveFurniture(Statystykimebla statystykimebla)
     {
         string pathname = statystykimebla.gameobjectstring;
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/" + pathname + ".furnitrue";
+        string path = Application.persistentDataPath + "/" + pathname + ".furniture";
         FileStream stream = new FileStream(path, FileMode.Create);
         Classforsavingdatafurnitures data = new Classforsavingdatafurnitures(statystykimebla);
         formatter.Serialize(stream, data);
         stream.Close();
     }
-    public static Classforsavingdatafurnitures LoadFurnitrue(Statystykimebla statystykimebla)
+    public static Classforsavingdatafurnitures LoadFurniture(Statystykimebla statystykimebla)
     {
         string pathname = statystykimebla.gameobjectstring;
-        string path = Application.persistentDataPath + "/" + pathname + ".furnitrue";
+        string path = Application.persistentDataPath + "/" + pathname + ".furniture";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
